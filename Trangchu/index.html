@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+    <style>
+      body {
+        background-image: url(/hinh/background3.jpg);
+        background-size: auto;
+      }
+    </style>
+  </head>
+
+  <body>
+    <header>
+      <div class="logo">
+        <img
+          src="/hinh/Book Cafe.jpg"
+          width
+          justify-content:
+          space-evenly;="150px"
+          height="150px"
+        />
+      </div>
+
+      <ul class="menu">
+        <li><a href="">Trang Chủ</a></li>
+        <li><a href="/baitay/index.html">Bài Tây </a></li>
+        <li><a href="/Tarot/index.html">Tarot</a></li>
+        <li><a href="/ThanSoHoc/index.html">Thần Số Học</a></li>
+        <li><a href="/khach_hang/dat_lich/index.html">Đặt lịch</a></li>
+      </ul>
+
+      <ul class="lienhe">
+        <li>
+          <a href="https://www.facebook.com/tranadidaphat172/">
+            <i class="fa-brands fa-facebook-f"></i
+          ></a>
+        </li>
+        <li>
+          <a href="https://www.instagram.com/juliea._.nne/"
+            ><i class="fa-brands fa-instagram"></i
+          ></a>
+        </li>
+        <li>
+          <a
+            href="href://www.tiktok.com/@julia_trantran?fbclid=IwAR0fEBF2OR2zR_k3bvByG7E8EHBpNGT2I3t-l444lktC5WIKp0nIYuq6lA0"
+            ><i class="fa-brands fa-tiktok"></i
+          ></a>
+        </li>
+      </ul>
+      <div class="giohang">
+        <a href=""> <i class="fa-solid fa-cart-shopping"></i></a>
+      </div>
+    </header>
+
+    <div class="gioithieu-container">
+      <h1>Giới thiệu</h1>
+      <div class="gioithieu">
+        <p>
+          JULIEA._.NNE là một trang web đáng tin cậy và phong cách dành cho
+          những người tò mò về tương lai và muốn khám phá thế giới của bói toán.
+          Chúng tôi cung cấp một loạt các dịch vụ bói toán chất lượng, giúp bạn
+          có cái nhìn sâu sắc hơn về cuộc sống và các khía cạnh khác nhau của
+          nó.Chúng tôi cam kết cung cấp thông tin chính xác và cung cấp cách
+          phân tích tinh tế để giúp bạn đưa ra những quyết định tốt nhất trong
+          cuộc sống. Hãy trải nghiệm JULIEA._.NNE ngay hôm nay để khám phá thế
+          giới bói toán và tương lai của bạn! Bói Tình Yêu: Chúng tôi giúp bạn
+          tìm hiểu về mối quan hệ tình cảm của bạn, dự đoán những thách thức và
+          cơ hội tình yêu sẽ đến với bạn. Bói Thần Số Học: Dự đoán tương lai và
+          nhận sự chỉ đạo từ các yếu tố thần số học. Bài Tarot: Nhìn vào lá bài
+          Tarot để hiểu rõ hơn về cuộc sống và quyết định quan trọng. Bói Bài
+          Tây: Bói bài Tây để tìm hiểu về tình hình hiện tại và sự phát triển
+          trong tương lai.
+        </p>
+      </div>
+    </div>
+    <div class="sanpham-container">
+      <h2>Các Gói Dịch Vụ Xem Tổng Hợp Kèm Lời Khuyên</h2>
+      <div class="sanpham">
+        <div class="sanpham_chitiet">
+          <!-- <form action="/khach_hang/dat_lich/" method="get">
+            <input type="hidden" name="san_pham" value="Tình Duyên" /> -->
+          <img src="/hinh/love.jpg" />
+          <p>Tinh Duyên</p>
+          <button onclick="t('Tình Duyên')" type="submit">Book lịch</button>
+        </div>
+        <div class="sanpham_chitiet">
+          <!-- <form action="/khach_hang/dat_lich/" method="get">
+            <input type="hidden" name="san_pham" value="Sự Nghiệp" /> -->
+          <img src="/hinh/career.jpg" />
+          <p>Sự Nghiệp</p>
+          <button onclick="t('Sự Nghiệp')" type="submit">Book lịch</button>
+        </div>
+        <div class="sanpham_chitiet">
+          <!-- <form action="/khach_hang/dat_lich/" method="get">
+            <input type="hidden" name="san_pham" value="Sức Khỏe" /> -->
+          <img src="/hinh/health.jpg" />
+          <p>Sức Khỏe</p>
+          <button onclick="t('Sức Khỏe')" type="submit">Book lịch</button>
+        </div>
+        <div class="sanpham_chitiet">
+          <!-- <form action="/khach_hang/dat_lich/" method="get">
+            <input type="hidden" name="san_pham" value="Vận Hạn" /> -->
+          <img src="/hinh/destiny.jpg" />
+          <p>Vận Hạn</p>
+          <button onclick="t('Vận Hạn')">Book lịch</button>
+        </div>
+      </div>
+    </div>
+  </body>
+  <script
+    src="https://kit.fontawesome.com/a14092beb1.js"
+    crossorigin="anonymous"
+  ></script>
+  <script>
+    const t = (value) => {
+      const stateObject = { param: "value" };
+      const baseUrl = "/khach_hang/dat_lich/";
+      const parameter = `san_pham=${value}`;
+      const newUrl = baseUrl + "?" + parameter;
+
+      window.history.pushState(stateObject, "Title", newUrl);
+
+      window.location.reload();
+    };
+  </script>
+</html>

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <div class="reader">
+      <table id="readerid">
+        <tr>
+          <th>Tên</th>
+          <th>Số Điện Thoại</th>
+          <th>Email</th>
+          <th>Lịch Làm</th>
+          <th>Notes</th>
+        </tr>
+        <tr>
+          <td>JUL</td>
+          <td>0969688686</td>
+          <td>JUL.julieanne@gmail.com</td>
+          <td>2,3,4,CN</td>
+          <td></td>
+          <td>
+            <button onclick="edit(0)">Edit</button>
+          </td>
+          <td>
+            <button onclick="xoa(0)">Delete</button>
+          </td>
+        </tr>
+        <tr>
+          <td>MIN</td>
+          <td>0123123123</td>
+          <td>MIN.julieanne@gmail.com</td>
+          <td>3,5,7,CN</td>
+          <td></td>
+          <td>
+            <button onclick="edit(1)">Edit</button>
+          </td>
+          <td>
+            <button onclick="xoa(1)">Delete</button>
+          </td>
+        </tr>
+        <tr>
+          <td>ALEX</td>
+          <td>0868686868</td>
+          <td>ALEX.julieanne@gmail.com</td>
+          <td>2,5,6,7</td>
+          <td></td>
+          <td>
+            <button onclick="edit(2)">Edit</button>
+          </td>
+          <td>
+            <button onclick="xoa(2)">Delete</button>
+          </td>
+        </tr>
+      </table>
+      <button onclick="add()">Add new Reader</button>
+    </div>
+    <script>
+      let note_arr = [" ", " ", " "];
+      function edit(index) {
+        const row = document.getElementById("readerid").rows[index + 1];
+        const noteInfo = row.cells[4];
+
+        const noteInput = document.createElement("input");
+        noteInput.value = note_arr[index];
+
+        const noteButton = document.createElement("button");
+        noteButton.textContent = "Save";
+        noteButton.onclick = function () {
+          note_arr[index] = noteInput.value;
+          noteInfo.textContent = noteInput.value;
+        };
+
+        noteInfo.innerHTML = "";
+        noteInfo.appendChild(noteInput);
+        noteInfo.appendChild(noteButton);
+      }
+
+      function xoa(index) {
+        const table = document.getElementById("readerid");
+        const row = table.rows[index + 1];
+        table.deleteRow(index + 1);
+      }
+
+      function add() {
+        const table = document.getElementById("readerid");
+        const newRow = table.insertRow(table.rows.length);
+
+        const newReader = [];
+        for (let i = 0; i < 5; i++) {
+          newReader.push(newRow.insertCell(i));
+          const newInput = document.createElement("input");
+          newInput.value = "";
+          newReader[i].appendChild(newInput);
+        }
+
+        const saveButton = document.createElement("button");
+        saveButton.textContent = "Save";
+        saveButton.onclick = function () {
+          newReader[index] = newInput.value;
+          newRow.textContent = newInput.value;
+        };
+        newReader[4].appendChild(saveButton);
+      }
+    </script>
+  </body>
+</html>

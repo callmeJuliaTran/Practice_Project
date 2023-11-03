@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="qlkhachhang.css" />
+    <style>
+    </style>
+  </head>
+
+  <body>
+    <h1>Danh Sách Khách Hàng 1/11/2023</h1>
+    <div class="khachhang">
+      <table id="table">
+        <tr>
+          <th>Tên</th>
+          <th>Số Điện Thoại</th>
+          <th>Gói Xem</th>
+          <th>Ngày Xem</th>
+          <th>Notes</th>
+          <th>Reader</th>
+          <th>Giờ</th>
+        </tr>
+        <tr>
+          <td>A</td>
+          <td>0123456789</td>
+          <td>Tình Duyên 60ph</td>
+          <td>1/11/2023</td>
+          <td>Mình rảnh từ 16h trở đi thôi ạ</td>
+          <td>Jul</td>
+          <td>
+            <button onclick="editRow(0)">Edit</button>
+          </td>
+          <td>17h</td>
+          <td>
+            <button onclick="editTime(0)">Edit</button>
+          </td>
+        </tr>
+        <tr>
+          <td>B</td>
+          <td>0987654321</td>
+          <td>Vận Hạn 12 tháng</td>
+          <td>1/11/2023</td>
+          <td>Yêu cầu reader Min + file .doc</td>
+          <td>Min</td>
+          <td>
+            <button onclick="editRow(1)">Edit</button>
+          </td>
+          <td>18h</td>
+          <td>
+            <button onclick="editTime(1)">Edit</button>
+          </td>
+        </tr>
+        <tr>
+          <td>C</td>
+          <td>0986869999</td>
+          <td>Sự Nghiệp 60ph</td>
+          <td>1/11/2023</td>
+          <td></td>
+          <td>Alex</td>
+          <td>
+            <button onclick="editRow(2)">Edit</button>
+          </td>
+          <td>11h</td>
+          <td>
+            <button onclick="editTime(2)">Edit</button>
+          </td>
+        </tr>
+      </table>
+    </div>
+    <div class="disp"></div>
+
+    <script>
+      let reader = ["Jul", "Min", "Alex"];
+      let time = [
+        1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20,
+        21, 22, 23, 24,
+      ];
+
+      function editRow(index) {
+        const row = document.getElementById("table").rows[index + 1];
+        const readerInfo = row.cells[5];
+        const readerInput = document.createElement("input");
+        readerInput.value = reader[index];
+
+        const readerButton = document.createElement("button");
+        readerButton.textContent = "Save";
+        readerButton.onclick = function () {
+          if (reader.indexOf(readerInput.value) != -1) {
+            reader[index] = readerInput.value;
+            readerInfo.textContent = readerInput.value;
+          } else {
+            alert("Không hợp lệ.");
+          }
+        };
+
+        readerInfo.innerHTML = "";
+        readerInfo.appendChild(readerInput);
+        readerInfo.appendChild(readerButton);
+      }
+
+      function editTime(index) {
+        const row = document.getElementById("table").rows[index + 1];
+        const gioInfo = row.cells[6];
+        const gioInput = document.createElement("input");
+        gioInput.value = time[index];
+        const gioButton = document.createElement("button");
+        gioButton.textContent = "Save";
+        gioButton.onclick = function () {
+          if (gioInput.value > 0 && gioInput.value < 25) {
+            time[index] = gioInput.value;
+            gioInfo.textContent = gioInput.value;
+          } else {
+            alert("Khong hop le. Nhập từ 1 đến 24");
+          }
+        };
+
+        gioInfo.innerHTML = " " + " giờ thay đổi thành";
+        gioInfo.appendChild(gioInput);
+        gioInfo.appendChild(gioButton);
+      }
+    </script>
+  </body>
+</html>

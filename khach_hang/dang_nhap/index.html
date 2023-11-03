@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dang Nhap</title>
+    <link rel="stylesheet" href="dn.css" />
+  </head>
+
+  <body>
+    <div class="login" >
+      <!-- form truyen du lieu -->
+      <!-- action chuyen di sang cho khac them vao url -->
+      <!-- method get truyen du liue le thanh yrl con post thi k show  -->
+      <form id="form-login" style="text-align: center">
+        <h1 class="form -heading">Form Dang Nhap</h1>
+        <div class="form-group">
+          <table>
+            <tr>
+              <td>
+                <input
+                  type="text"
+                  class="form-input"
+                  placeholder="Ten Dang Nhap"
+                  name="tendangnhap"
+                />
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <input
+                  type="password"
+                  class="form-input"
+                  form-input
+                  placeholder="Mat Khau"
+                  name="matkhau"
+                />
+              </td>
+            </tr>
+          </table>
+          <p>Tên đăng nhập: khachhang</p>
+          <p>Mật Khẩu: 1</p>
+
+          <br />
+
+          <span id="loidn" style="color: red"></span>
+        </div>
+        <button type="submit" id="a">DANG NHAP</button><br />
+      </form>
+    </div>
+    <!-- kt dang nhap khach hang voi usernam = khachhang mk = 1 , neu dung chuyen ve trang chu sai thi hien loi-->
+  </body>
+  <script>
+    document.querySelector("form").addEventListener("submit", function (event) {
+      event.preventDefault();
+      var tendangnhap = document.getElementsByName("tendangnhap")[0].value;
+      var matkhau = document.getElementsByName("matkhau")[0].value;
+      console.log(tendangnhap, matkhau);
+      if (tendangnhap == "khachhang" && matkhau == 1) {
+        window.open("/Trangchu/index.html");
+      } else {
+        var loi = document.getElementById("loidn");
+        loi.textContent = "Ten dang nhap hoac mat khau khong trung khop";
+      }
+    });
+  </script>
+</html>

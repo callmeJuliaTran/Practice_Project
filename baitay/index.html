@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+</head>
+
+<body>
+    <p id="demo"></p>
+    <script>
+
+        function get_random(arr) {
+  if (arr.length === 0) {
+    return null; // or handle this case as needed
+  }
+  const randomIndex = Math.floor(Math.random() * arr.length);
+  return arr[randomIndex];
+}
+let arr = [
+            {
+                firstName: "7 Cơ",
+                meaning:
+                    "Lá 7 cơ có nghĩa là có món tiền nhỏ, lộc nhỏ hoặc tiền nợ, tiền vay mượn...Nếu là 7 cơ đi cùng các lá bài chất Bích thì có thể bị hao tài, khó xoay sở tiền bạc. Còn nếu 7 cơ đi cùng các lá bài chất Cơ, Rô, Tép thì tiền bạc thuận lợi. Lá 7 cơ Có lợi lộc nhỏ, món tiền nhỏ, hoặc có nợ nần, tiền công nợ, tiền vay mượn hoặc sự tương quan về nhân quả với nhau. Nếu đi cùng với các lá bài Cơ, Rô, hoặc Chuồn thì có sự thuận lợi về tiền bạc. Nếu đi với các lá bài Bích thì bị hao tài nhỏ, hoặc bị lúng túng về tiền đáo hạn, tiền bạc khó xoay trở.",
+            },
+            {
+                firstName: "8 Cơ",
+                meaning:
+                    "Lá bài này có nghĩa là có cơ hội tốt, thuận lợi, tình duyên, hôn nhân tốt đẹp, mọi việc đang mong cầu đều được toại nguyện, đặc biệt là về tình cảm và tiền bạc. Lá 8 cơ đi cùng lá bài chất Tép thì tiền bạc thuận lợi. Nếu đi cùng lá bài chất Bích thì gia đạo nhiều chuyện buồn. Lá 8 cơ Chủ sự thuận lợi, cơ hội tốt, hôn nhân tốt đẹp, tình duyên vừa ý, còn tượng trưng cho gia đạo, nếu mong cầu về mọi việc thì đều thuận lợi và đến nhanh, nhất là về tiền bạc và tình cảm. Nếu đi cùng với các lá bài Chuồn thì sự mong cầu về tiền bạc rất thuận lợi, cơ hội thu hoạch tiền bạc đến rất nhanh. Đặc biệt, nếu đi kèm với các lá bài Bích thì gia đạo có nhiều chuyện buồn mà mình phải lo toan.",
+            },
+            {
+                firstName: "9 Cơ",
+                meaning:
+                    "Lá 9 cơ tượng trưng cho thời cơ, thời vận may mắn, tình cảm tốt đẹp nhưng hay bị xa cách, ít gặp mặt. 9 cơ đi cùng lá bài chất Rô, Cơ, Tép thì thời vận đẹp. Nếu đi cùng lá bài chất BÍch thì có nhiều điều đáng quan ngại. Lá 9 cơ Chủ về thời vận, thời cơ, sự tưởng tượng phong phú, sự mơ ước, mơ mộng, tình cảm tốt đẹp nhưng ít gặp mặt nhau, hay bị xa cách nhau. Nếu đi cùng với các lá bài Cơ, các lá bài Rô, hoặc các lá bài Chuồn thì thời vận tốt đẹp. Nếu đi với các lá bài Bích thì rất đáng lo ngại, dù công việc làm ăn đang tốt đẹp cũng nên cẩn trọng, nên thu vén gọn gàng.",
+            },
+            {
+                firstName: "10 Cơ",
+                meaning:
+                    "Lá 10 cơ có nghĩa là gia đình hạnh phúc, tình cảm tốt đẹp, thuận lợi, mọi việc mong chờ đều theo ý muốn. Nếu 10 cơ đi cùng lá bài chất Bích thì rất xấu, đặc biệt là lá 9 Bích. Lá 10 cơ Chủ sự thuận lợi, gia đình hạnh phúc, tình cảm tốt đẹp, cơ hội tốt đẹp, mọi việc mong cầu đều được toại nguyện. Nếu đi với các lá bài Bích thì chủ về phúc đức đã hết, cơ hội cứu giải không có. Đặc biệt, rất xấu nếu đi với lá bài 9 Bích, khó vượt qua tai nạn.",
+            },
+            {
+                firstName: "J Cơ",
+                meaning:
+                    "J cơ tượng trưng cho sự thuận lợi về tiền bạc, tốt đẹp về tình cảm, tuy nhiên chỉ ở mức độ nhỏ. Ngoài ra, nó còn thể hiện cho sự lương thiện, hiền lành, ngay thẳng. Lá J cơ Chủ sự thuận lợi, có cơ hội tốt về tình cảm, tiền bạc, tuy nhiên sự tốt đẹp trong mọi việc chỉ ở mức độ nhỏ, trung bình. Ngoài ra, còn tượng trưng cho người đàn ông lương thiện, tính tình ngay thẳng, nhân hậu, hiền lành, có thể tin cậy được. Nếu đi với lá bài 9 Rô, hoặc 8 Rô có nghĩa là mất của tìm lại được, gặp lại người xưa, trở lại nghề cũ hoặc nhà cũ. Nếu cùng các lá bài Bích thì nên cẩn trọng đề phòng mọi việc bất trắc có thể xảy ra, hoặc chuyện tình cảm không hài lòng.",
+            },
+            {
+                firstName: "Q Cơ",
+                meaning:
+                    "Lá Q cơ chủ về cơ hội tốt, thuận lợi, tình cảm tốt đẹp. Bên cạnh đó, Q cơ còn tượng trưng cho hình ảnh người phụ nữ hiền lành, đoan chính, thiên về tình cảm hơn vật chất. Lá Q cơ Chủ về sự thuận lợi, có cơ hội tốt, tình cảm tốt, ngoài ra còn tượng trưng cho người phụ nữ tính tình đoan chính, hiền lành, phúc hậu, thiên về tinh thần, tình cảm, hơn là vật chất tiền bạc. Nếu đi với lá bài 9 Rô, hoặc 8 Rô, mất của tìm lại được, gặp lại người xưa hoặc trở lại nghề cũ, trở lại nơi chốn cũ. Nếu đi với lá bài 7 Rô, có nghĩa là bỏ nhà ra đi, theo người khác dứt tình cũ. Nếu đi cùng với các lá bài Bích thì nên cẩn trọng đề phòng mọi việc bất trắc có thể xảy ra, hoặc chuyện tình cảm đau buồn.",
+            },
+            {
+                firstName: "K Cơ",
+                meaning:
+                    "Lá K cơ tượng trưng cho những cơ hội tốt đẹp. Ngoài ra, trong ý nghĩa bộ bài 32 lá nó còn tượng trưng cho người đàn ông có sự nghiệp lớn, phong độ, nhân hậu, thanh cao. Lá K cơ Chủ về sự thuận lợi, cơ hội tốt đẹp, tượng trưng cho người đàn ông nhân hậu độ lượng, có sự nghiệp lớn lao, danh tiếng, tính tình hiền hòa, phong độ nhàn nhã, thanh cao. Nếu đi với lá bài 9 Rô hoặc 8 Rô, có nghĩa là mất của tìm lại được, gặp lại người xưa hoặc trở lại nghề nghiệp cũ. Nếu đi với các lá bài Bích, dù mọi việc đang êm đềm không có gì xảy ra cũng không nên lạc quan, cần có sự phòng thủ, cẩn trọng đề phòng mọi việc bất trắc có thể xảy ra bất ngờ.",
+            },
+            {
+                firstName: "Át Cơ",
+                meaning:
+                    "Lá Át cơ chủ về những điều tốt đẹp, mưu cầu nhanh chóng được toại nguyện. Nó còn tượng trưng cho những phúc đức mà tổ tiên để lại, hóa giải điều xấu. Lá Át cơ Chủ sự thuận lợi tốt đẹp đến nhanh, mưu cầu mọi việc đều được như ý. Ngoài ra, còn tượng trưng cho phúc đức của tổ tiên để lại, có hiệu lực hóa giải được tai nạn, hóa giải mọi điều xấu xảy ra hại đến mình. Nếu đi với các lá bài Cơ thì điềm báo trong gia đình có hỷ sự, gia đình đoàn tụ. Nếu đi với các lá bài Bích thì chủ về phúc đức đã hết, cơ hội cứu giải không có, cần lưu ý điều này mà cố gắng tạo phúc. Đặc biệt khi đi với lá bài 9 Bích, khó vượt qua tai nạn: báo tin có tang.",
+            },
+            {
+                firstName: "7 Rô",
+                meaning:
+                    "Lá 7 rô chủ về sự lưu động, di chuyển ngắn, tính toán nhanh nhẹn, phù hợp với việc đầu tư ngắn hạn. Lá 7 rô Chủ về đường đi, sự di chuyển, lưu động, cuộc đi ngắn ngủi, sự tính toán nhanh nhẹn, nóng nảy, thích hợp cho việc đầu tư ngắn hạn. Nếu đi cùng với các lá bài Cơ, Rô, hoặc Chuồn thì làm gia tăng thêm sự tốt đẹp. Nếu đi kèm với các lá bài Bích, thì mọi sự việc khó xoay trở, không tiến hành được, tiến thoái lưỡng nan, hoặc công việc bị bế tắc.",
+            },
+            {
+                firstName: "8 Rô",
+                meaning:
+                    "Lá bài này tượng trưng cho sự di chuyển, thay đổi không ngừng nên thích hợp vào việc đầu tư ngắn hạn hoặc các công việc dứt điểm nhanh. Lá 8 rô Chủ về đường đi, sự di chuyển, lưu động, sự tính toán nhanh nhẹn, sự thay đổi không ngừng, thích hợp cho việc đầu tư ngắn hạn, các công việc có sự dứt điểm nhanh chóng. Nếu đi cùng với các lá bài 8 Cơ và 8 Chuồn, mưu sự thành đạt, nếu đi với lá bài 8 Cơ và 8 Bích, mưu sự bất thành. Nếu đi với các lá bài Bích, thì sự việc khó xoay trở, mọi tính toán đều không thực hiện được, tiến thoái lưỡng nan, công việc bị bế tắc.",
+            },
+            {
+                firstName: "9 Rô",
+                meaning:
+                    "9 rô thể hiện sự thay đổi về nơi ở, công danh, có sự tính toán trong công việc. Nếu đi cùng lá bài chất Tép, Cơ, Rô thì thay đổi tốt đẹp. Còn đi cùng lá bài chất Bích thì sự thay đổi xấu, không nên đi xa. Lá 9 Rô Chủ về đường đi, sự tính toán công việc, sự thay đổi về công danh, thay đổi nơi ăn chốn ở, di chuyển. Nếu đi với các lá bài Cơ, Rô, hoặc Chuồn thì có sự thay đổi tốt đẹp, hoặc mọi việc, mọi tin tức ở nơi xa xôi tốt đẹp. Nếu đi với lá bài Bích thì sự thay đổi hoàn cảnh rất khó khăn, ở trong tình thế bị bắt buộc, khó xoay trở, không nên đi xa.",
+            },
+            {
+                firstName: "10 Rô",
+                meaning:
+                    "10 rô tượng trưng cho việc thu được tài sản nhờ cuộc xê dịch hay du lịch nào đó. Nếu đi cùng bài chất Cơ thì sẽ là cuộc du lịch tốt đẹp. Nếu đi cùng bài chất Tép thì đó là cuộc du lịch nhiều lộc lá. Nếu đi cùng bài chất Bích thì phúc đức hết.  Lá 10 rô Chủ sự nghiệp chỉ định một tài sản thu được hờ một cuộc du lịch, hoặc do nhiều cuộc xê dịch. Nếu đi với lá bài Cơ là biểu tượng của một cuộc du lịch vui đẹp đầy tâm tình. Gặp lá Chuồn thì cuộc du lịch mang lại nhiều lợi lôc. Nếu đi với các lá bài Bích thì chủ về phúc đức đã hết, cơ hội cứu giải không có. Đặc biệt, rất xấu nếu đi với lá bài 9 Bích, khó vượt qua tai nạn.",
+            },
+            {
+                firstName: "J Rô",
+                meaning:
+                    "Lá bài này chủ về sự di chuyển, lưu động, đi lại nhiều. Ngoài ra, theo ý nghĩa 32 lá bài tây nó còn thể hiện cho người đàn ông ham vui, thích nay đây mai đó. Lá J rô Chủ về sự đi lại, di chuyển nhiều, lưu động, tượng trưng cho người đàn ông vui tính, thích vui chơi đây đó, ham vui. Nếu đi cùng với các lá bài Cơ, các lá bài Rô, hoặc các lá bài Chuồn thì đều làm gia tăng độ số tốt đẹp. Nếu đi với các lá bài Bích, thì mọi sự việc khó xoay trở, không tiến hành được, tiến thoái lưỡng nan, cẩn thận trong sự đi lại.",
+            },
+            {
+                firstName: "Q Rô",
+                meaning:
+                    "Lá bài này chủ về sự suy tính mau lẹ, nóng nảy, lưu động, đi lại. Nó tượng trưng cho người ăn nói ngay thẳng, trực tính, nặng về vật chất hơn tình cảm. Lá Q rô Chủ về sự đi lại, lưu động, sự suy tính nhanh nhẹn, nóng nảy, tượng trưng cho người phụ trực tính, ăn ngay nói thẳng, nặng về thực tế, vật chất, hơn là vấn đề tinh thần, tình cảm. Nếu đi với các lá bài Cơ, các lá bài Rô, hoặc các lá bài Chuồn thì làm gia tăng độ số tốt đẹp của các lá bài này thêm lên. Nếu đi với các lá bài Bích, thì mọi sự việc khó xoay trở, không tiến hành được, tiến thoái lưỡng nan, cẩn thận trong sự đi lại.",
+            },
+            {
+                firstName: "K Rô",
+                meaning:
+                    "Lá K rô trong ý nghĩa của 32 lá bài chủ về sự lưu động, di chuyển, có sự thay đổi trong công việc. Tuy sự thay đổi đó chậm nhưng nhìn chung sẽ thành công. Lá K rô Chủ về sự di chuyển, lưu động, thay đổi hoặc là kết quả của công việc tuy chậm nhưng thành công. Nếu cùng đi với các lá bài Cơ, các lá bài Rô, hoặc các lá bài Chuồn thì làm gia tăng độ số tốt đẹp thêm lên. Nếu đi với các lá bài Bích, thì mọi sự việc khó xoay trở, không tiến hành được, tiến thoái lưỡng nan, cẩn thận trong sự đi lại.",
+            },
+            {
+                firstName: "Át Rô",
+                meaning:
+                    "Lá bài này chủ về thư từ, tin tức, lời hứa hẹn, niềm tin, giấy tờ, văn tự… Át rô đi cùng lá bài Cơ, Rô, Tép thì tin tức tốt đẹp. Nếu đi cùng lá bài chất Bích thì tin tức xấu, hung tin. Lá Át rô Chủ về tin tức, thư từ, uy tín, niềm tin, lời hứa hẹn, văn tự, giấy tờ trong công việc. Nếu đi với các lá bài Cơ, các lá bài Rô, hoặc các lá bài Chuồn thì có nhiều tin tức thuận lợi, tin vui tốt đẹp. Nếu đi với các lá bài Bích xấu, thì nhận được nhiều tin tức xấu hoặc bị tiểu nhân tung tin xấu.",
+            },
+            {
+                firstName: "7 Bích",
+                meaning:
+                    "Lá 7 bích chủ về sự bất mãn, không hài lòng, xung đột, cãi vã, trái ý, nhiều sự việc xảy ra không như ý muốn. Nếu đi cùng lá 7 cơ thì càng xấu. Nếu đi cùng lá 10 cơ thì điềm xấu được hóa giải. Lá 7 bích Chủ sự trái ý, sự không hài lòng, bất mãn, xung đột, rầy rà, cãi vả, gây gỗ, nhiều sự việc xấu xảy ra ngoài dự tính. Nếu đi cùng với lá bài 7 Rô, có sự cãi cọ, tranh chấp. Đặc biệt, những trường hợp xấu này có thể được hóa giải, hoặc được giảm chế nếu lá bài thứ ba trong quẻ bài là lá bài 10 cơ.",
+            },
+            {
+                firstName: "8 Bích",
+                meaning:
+                    "Lá bài này theo ý nghĩa của 32 lá bài tây chủ về sự thiệt hại, hư hỏng, thua lỗ, thiệt thòi, thất bại, lầm lỡ, bệnh dịch hoặc bị tiểu nhân hãm hại. Nếu đi cùng lá 10 cơ thì điềm xấu được hóa giải, đi cùng 8 rô và 8 cơ thì mưu sự bất thành, đi cùng lá bài Bích thì bị bệnh hoặc tiểu nhân chơi xấu. Lá 8 bích Chủ sự hư hỏng, thiệt hại, thiệt thòi, thua lỗ, thất bại, bệnh tật, sự lỡ lầm, hoặc bị tiểu nhân chơi xấu, bị tiểu nhân mưu hại. Nếu đi cùng với lá bài 8 Cơ và 8 Rô, mưu sự bất thành. Nếu đi cùng với các lá bài Bích có thể đưa đến bị tiểu nhân chơi xấu, hoặc bị bệnh nan y. Đặc biệt, những trường hợp xấu này có thể được hóa giải, hoặc được giảm chế, nếu lá bài thứ ba trong quẻ bài là lá bài 10 cơ.",
+            },
+            {
+                firstName: "9 Bích",
+                meaning:
+                    "Lá 9 bích chủ về sự khẳng định, quyết định về một vấn đề nào đó. Ngoài ra, nó còn chủ về sự chia ly, tuyệt giao, chấm dứt, kết thúc. Lá 9 bích Chủ sự quyết định, khẳng định cho một vấn đề, còn chủ sự tuyệt giao, có sự chia ly hoặc bỏ ra đi, kết thúc, chấm dứt.",
+            },
+            {
+                firstName: "10 Bích",
+                meaning:
+                    "Chiếu theo ý nghĩa bộ bài 32 lá bài này chủ về sự buồn phiền, đau khổ kéo dài dai dẳng. Ngoài ra, nó còn chủ về sự chậm chạp, trì trệ, chờ đợi lâu không có kết quả. Lá 10 bích Chủ sự việc bị trì trệ chậm chạp, buồn phiền, sự chờ đợi lâu ngày mà vẫn chưa thấy kết quả, sự đau buồn dai dẳng kéo dài. Nếu đi cùng với nhiều lá Bích khác, làm gia tăng sự xấu. Nếu đi cùng với các lá bài Cơ Rô hoặc Chuồn sẽ làm giảm sự tốt đẹp của các lá bài này.",
+            },
+            {
+                firstName: "J Bích",
+                meaning:
+                    "J bích chủ về tai nạn, sự nguy hiểm, tiểu nhân hãm hại, gặp trắc trở, vận mệnh lụi bại. Ngoài ra, nó còn tượng trưng cho hình ảnh người đàn ông hay gặp trắc trở, không may.",
+            },
+            {
+                firstName: "Q Bích",
+                meaning:
+                    "Lá Q bích chủ về thời vận xấu, tai nạn, trở ngại. Ngoài ra, nó tượng trưng cho người phụ nữ gặp bất hạnh, trắc trở, không may. Lá Q bích Chủ sự trở ngại, tai nạn, thời vận xấu, tượng trưng cho người đàn bà hay gặp nhiều chuyện không may đến với mình, cuộc đời thường gặp bất trắc, trở ngại. Nếu đi với nhiều lá Bích, làm gia tăng sự xấu, đi cùng các lá bài Cơ, các lá bài Rô, hoặc các lá bài Chuồn, làm giảm sự tốt. Đặc biệt, nếu đi với lá 10 cơ thì khó khăn sẽ được hóa giải.",
+            },
+            {
+                firstName: "K Bích",
+                meaning:
+                    "Lá bài này trong ý nghĩa 32 lá bài tây chủ về tai nạn, thời vận xấu, nguy hiểm đang rình rập. Bên cạnh đó, nó tượng trưng cho người đàn ông không gặp may mắn.  Lá K bích Chủ thời vận xấu, sự trở ngại, tai nạn, có sự nguy hiểm về pháp luật đang rình rập. Tượng trưng cho người đàn ông hay gặp nhiều chuyện không may đến với mình, cuộc đời hay gặp bất trắc, trở ngại. Nếu đi với nhiều lá Bích, làm gia tăng sự xấu, đi cùng các lá bài Cơ, các lá bài Rô, hoặc các lá bài Chuồn, làm giảm sự tốt. Nếu đi với lá 10 cơ thì có thể dễ dàng vượt qua khó khăn.",
+                firstName: "Át Bích",
+                meaning:
+                    "Lá Át bích chủ về sự sầu khổ, thất vọng, buồn phiền, tâm tư không thổ lộ được cùng ai. Nếu đi cùng lá 10 cơ thì điềm xấu sẽ được hóa giải. Lá Át bích Chủ sự buồn rầu, thất vọng, sầu khổ về nội tâm, nỗi niềm phiền muộn riêng tư khó thố lộ với ai, nỗi buồn không tên. Đi với lá bài 9 Bích, tin tức chờ đợi bị chậm trễ, biệt vô âm tín. Nếu đi với nhiều lá Bích, làm gia tăng sự xấu, đi cùng các lá bài Cơ, các lá bài Rô, hoặc các lá bài Chuồn, làm giảm sự tốt. Đặc biệt, những trường hợp xấu này có thể được hóa giải, hoặc được giảm chế, hoặc có thể vượt qua một cách nhẹ nhàng, nếu lá bài thứ ba trong quẻ bài là lá bài 10 cơ.",
+            },
+            {
+                firstName: "7 Tép",
+                meaning:
+                    "Gặp lá 7 tép có nghĩa là bạn đang có món lộc nhỏ, món tiền nhỏ hay món nợ, khoản tiền vay...7 tép đi cùng lá bài Cơ, Rô, Tép thì tiền bạc thuận lợi. Ngược lại, nếu đi cùng lá bài Bích thì hao tài, tiền bạc khó khăn. Lá 7 tép Có lợi lộc nhỏ, món tiền nhỏ, hoặc có nợ nần, tiền công nợ, tiền vay mượn, sự liên quan với nhau, có quan hệ qua lại với nhau. Nếu đi cùng với các lá bài Cơ, Rô, hoặc Chuồn thì có sự thuận lợi về tiền bạc. Nếu đi với các lá bài Bích thì bị hao tài nhỏ, hoặc bị lúng túng về tiền đáo hạn, tiền bạc khó xoay trở.",
+            },
+            {
+                firstName: "8 Tép",
+                meaning:
+                    "Lá bài này trong ý nghĩa 32 lá bài tây chủ về tiền bạc phải trả, tiền đáo hạn, sự nay trả lẫn nhau. Nếu đi cùng lá bài Bích thì hao tài, nếu đi cùng lá bài Cơ, Rô, Tép thì tiền bạc thuận lợi, có chút lời lãi. Lá 8 tép Về tiền bạc thì tiền trả nợ, tiền phải trả đáo hạn kỳ hoặc có sự tương quan về nhân quả với nhau, có sự vay trả với nhau. Nếu đi cùng với các lá bài Cơ, Rô, hoặc Chuồn thì có sự thuận lợi hoặc có cơ hội tốt về tiền bạc, tiền bạc vay mượn dễ dàng hoặc có lãi chút ít. Nếu đi với các lá bài Bích thì hao tài nhỏ, hoặc lúng túng về tiền đáo hạn, tiền bạc khó xoay trở.",
+            },
+            {
+                firstName: "9 Tép",
+                meaning:
+                    "Lá 9 tép tượng trưng cho tài phát bất ngờ, tiền bảo trợ, trợ cấp hay được người khác giúp đỡ. Nếu đi cùng lá bài Cơ, Rô, tép thì tiền bạc kiếm được dễ dàng. Nếu đi cùng lá bài Bích thì hao tài, có rồi lại mất, không giữ được. Lá 9 tép (hay 9 chuồn) Có lộc bất ngờ, tiền phát tài bất ngờ, tiền được trợ cấp, bảo trợ, tiền được người giúp đỡ hoặc các việc phát sinh bất ngờ ngoài dự tính. Nếu đi với các lá bài Cơ, Rô, hoặc Chuồn thì có sự thuận lợi về tiền bạc, kiếm tiền dễ dàng. Nếu đi với các lá bài Bích thì hao tài, hoặc có tiền mà không lấy ra được, hoặc có tiền rồi cũng hết, không cầm giữ được.",
+            },
+            {
+                firstName: "10 Tép",
+                meaning:
+                    "Lá bài này tượng trưng cho việc có tiền, vốn liếng, tiền lương cơ bản, tiền kiếm được cho khối óc của mình. Nếu đi cùng lá bài Bích thì thất bại, thua lỗ. Nếu đi cùng lá bài Cơ, Rô, Tép thì thuận lợi tiền bạc. Lá 10 tép (hay 10 chuồn) Có tiền, tiền vốn, tiền lương căn bản, vốn liếng thực sự của mình, tiền kiếm được do chính bàn tay khối óc của mình tạo ra. Nếu đi với các lá bài Cơ, các lá bài Rô, hoặc các lá bài Chuồn thì có sự thuận lợi về tiền bạc. Nếu đi với các lá bài Bích thì hao tài, thất bại thua lỗ hết vốn hoặc lúng túng về tiền.",
+            },
+            {
+                firstName: "J Tép",
+                meaning:
+                    "J tép chủ về tiền bạc thuận lợi, làm ra tiền, kinh doanh thương mại phù hợp. Tuy nhiên, sự thuận lợi này chỉ ở mức độ nhỏ, không nên đầu tư lớn kẻo không có lợi. Lá J tép Chủ sự thuận lợi về tiền bạc, tự tay làm ra tiền, thích hợp với việc kinh doanh, thương mại. Tuy nhiên, sự thuận lợi tốt đẹp này chỉ là nhỏ, sự nghiệp nhỏ, các công việc bình thường, không nên đầu tư làm ăn lớn lao, không có lợi. Nếu đi với các lá bài Cơ, các lá bài Rô, hoặc các lá bài Chuồn thì làm gia tăng độ số tốt về tiền, có sự thuận lợi về tiền bạc. Nếu đi với các lá bài Bích thì tài lộc xấu, bị hao tài, hoặc đang lúng túng về tiền, khổ sở vì tiền, tiền bạc khó xoay trở.",
+            },
+            {
+                firstName: "Q Tép",
+                meaning:
+                    "Chiếu theo ý nghĩa của 32 lá bài tây, Q tép tượng trưng cho người đàn bà cô độc, cô đơn trong chuyện tình cảm, là người tính nết ngay thẳng, hay ghen. Ngoài ra, nó còn chủ về tiền bạc thịnh vượng, kinh doanh phù hợp với các ngành quý kim, tiền bạc. Lá Q tép Là lá bài chỉ người đàn bà cô đơn cô độc về chuyện tình cảm, là người hay ghen, tính nết ngay thẳng. Chủ sự thịnh vượng về tiền bạc, thích hợp cho việc mua bán, kinh doanh, hoặc làm các nghề có liên quan đến tiền bạc, quý kim Nếu đi với các lá bài Cơ, các lá bài Rô, hoặc các lá bài Chuồn thì có sự thuận lợi về tiền bạc, kiếm tiền dễ dàng. Nếu đi với các lá bài Bích thì hao tài, hoặc lúng túng về tiền, tiền bạc khó xoay trở, thời vận xấu.",
+            },
+            {
+                firstName: "K Tép",
+                meaning:
+                    "Lá bài này chủ về sự giàu có, thịnh vượng, sung túc về của cải. Ngoài ra, nó còn tượng trưng cho người đàn ông giàu có, uy quyền, sự nghiệp thành đạt. Lá K tép Chủ sự thịnh vượng về tiền bạc, giàu có, sung túc về của cải vật chất, tượng trưng cho người đàn ông thành đạt, có sự nghiệp lớn lao, đây là mẫu người có uy quyền, giàu có lớn. Nếu đi với lá bài Cơ, lá bài Rô, hoặc các lá bài Chuồn, có sự thuận lợi về tiền bạc. Nếu đi với các lá bài Bích thì hao tài, hoặc lúng túng về tiền, tiền bạc khó xoay trở.",
+            },
+            {
+                firstName: "Át Tép",
+                meaning:
+                    "Lá Át tép khi giải mã 32 lá bài tây thấy lá bài này chủ về thắng lợi tiền bạc, kiếm được tiền dễ dàng. Nếu đi cùng lá bài Tép thì có công việc mới, phát tài. Nếu đi cùng lá bài Cơ, Rô thì công việc thuận lợi. Nếu đi cùng lá bài Bích thì hao tài. Lá Át tép Chủ về tiền bạc, thắng lợi về tiền, kiếm được nhiều tiền dễ dàng bằng chính bàn tay khối óc của mình. Nếu đi với các lá bài Tép thì chỉ sự phát tài hay có thêm công việc mới. Nếu đi với các lá bài Cơ, lá bài Rô, thì có sự thuận lợi trong công việc. Nếu đi với các lá bài Bích thì hao tài, hoặc lúng túng về tiền, tiền bạc khó xoay trở.",
+            },
+        ];
+let ketqua= get_random(arr)
+document.getElementById("demo").innerHTML = "Card: " + ketqua.firstName + "<br> Meaning: " + ketqua.meaning;
+    </script>
+</body>
+
+</html>

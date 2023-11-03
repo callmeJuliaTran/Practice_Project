@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dang Ky</title>
+    <link rel="stylesheet" href="dk.css" />
+  </head>
+  <body>
+    <div id="a">
+      <div class="login">
+        <form action="" id="form-login" method="post">
+          <h1 class="form-heading">Form Dang Ky</h1>
+
+          <div id="b1">
+            <span><i class="fa-regular fa-user"></i></span>
+
+            <input
+              type="text"
+              class="form-input"
+              placeholder="Ten Dang Ky"
+              name="tendangky"
+            />
+          </div>
+          <div id="b2">
+            <input
+              type="password"
+              class="="
+              form-input
+              placeholder="Mat Khau"
+              name="matkhau"
+            />
+          </div>
+          <div id="b3">
+            <input
+              type="confirmpassword"
+              class="="
+              form-input
+              placeholder="Xac Nhan Mat Khau"
+              name="xnmatkhau"
+            />
+          </div>
+
+          <button type="submit" id="b4">DANG KY</button><br />
+          <span id="loidangky" style="color: red"></span>
+        </form>
+      </div>
+    </div>
+  </body>
+
+    <script
+      src="https://kit.fontawesome.com/a14092beb1.js"
+      crossorigin="anonymous"
+    ></script>
+    <script>
+      document
+        .querySelector("form")
+        .addEventListener("submit", function (event) {
+          event.preventDefault();
+          var matkhau = document.getElementsByName("matkhau")[0].value;
+          var xnmatkhau = document.getElementsByName("xnmatkhau")[0].value;
+          console.log(matkhau, xnmatkhau);
+          if (matkhau === xnmatkhau) {
+            window.open("/Trangchu/index.html");
+          } else {
+            var loidk = document.getElementById("loidangky");
+            loidk.textContent = " Mat khau khong giong nhau";
+          }
+        });
+    </script>
+
+</html>

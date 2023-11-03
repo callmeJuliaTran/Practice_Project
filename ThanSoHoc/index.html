@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Thần Số Học</title>
+  </head>
+
+  <body>
+    <h1>Thần Số Học Con Số Chủ Đạo Của Bạn</h1>
+    <div id="thongtin">
+      <input
+        type="text"
+        class="form-input"
+        placeholder="Họ Và Tên"
+        name="hoten"
+      />
+    </div>
+    <div id="ngayinh">
+      <input
+        type="date"
+        class="form-input"
+        placeholder="Ngày Tháng Năm Sinh"
+        name="ngaysinh"
+        id="ngaysinh"
+      />
+      <button onclick="thansohoc()">Tính Số Chủ Đạo</button>
+    </div>
+    <div id="ketqua"></div>
+    <script>
+      function tinhTong(n) {
+        let tong = 0;
+        while (n > 0) {
+          tong += n % 10;
+          n = Math.floor(n / 10);
+        }
+        return tong;
+      }
+
+      function tinhtong2(n) {
+        while (n >= 10) {
+          n = tinhTong(n);
+        }
+        return n;
+      }
+
+      function thansohoc() {
+        const ngaySinhElement = document.getElementById("ngaysinh");
+        const ngaySinh = new Date(ngaySinhElement.value);
+
+        const ngay = ngaySinh.getDate();
+        const thang = ngaySinh.getMonth() + 1;
+        const nam = ngaySinh.getFullYear();
+
+        const soTong = tinhtong2(
+          tinhTong(ngay) + tinhTong(thang) + tinhTong(nam)
+        );
+
+        const ketQuaElement = document.getElementById("ketqua");
+        if (soTong == 1) {
+          ketQuaElement.innerHTML =
+            "Số Chủ Đạo của bạn là: 1. Số 1 trong nhân số học là con số đầu tiên! Nó là con số tuyệt đối duy nhất, tượng trưng cho sự tồn tại của bản chất mỗi con người. Nó cho thấy cách chúng ta truyền đạt cái tôi của mình đến với mọi người. Số 1 là chìa khóa mở ra con đường đến với kỹ năng giao tiếp của chúng ta.";
+        } else if (soTong == 2) {
+          ketQuaElement.innerHTML =
+            "Số Chủ Đạo của bạn là: 2.là hiện thân cho sự kiên nhẫn, công bằng, khả năng ngoại giao và một tấm lòng yêu thương, nhân ái. Nhiệm vụ của người mang con số đường đời 2, là trở thành người kết nối, hòa giải, đem tình yêu thương vào các mối quan hệ trong mọi khía cạnh cuộc sống. Mục đích sống của những người này là học được cách làm việc hài hòa, cân bằng và tôn trọng lẫn nhau. Còn số 2 trong biểu đồ ngày sinh lại mang khả năng cảm nhận cuộc sống, hạnh phúc, hòa bình và tính cân bằng.";
+        } else if (soTong == 3) {
+          ketQuaElement.innerHTML =
+            "Số Chủ Đạo của bạn là: 3.Số 3 là hiện thân của sự năng động, vui tươi, khả năng cân bằng cảm xúc và truyền được nhiều nguồn cảm hứng. Nhiệm vụ của những người mang số 3 trong Thần số học là người sử dụng cách diễn đạt sáng tạo, phát triển khả năng kết nối, tình cảm lành mạnh trong mọi khía cạnh của cuộc sống. Mục đích sống của những người này là sử dụng cảm xúc và tài năng sáng tạo của mình để nâng cao tinh thần và truyền cảm hứng tới tất cả  mọi người.";
+        } else if (soTong == 4) {
+          ketQuaElement.innerHTML =
+            "Số Chủ Đạo của bạn là: 4.Thần số học số 4 trong ý nghĩa các con số là hiện thân cho những định hướng, sự chia sẻ thực tế, làm việc chỉn chu. Nhiệm vụ của bạn là tạo ra sự ổn định và an toàn, khi cần hoàn thành một điều gì đó mang giá trị lâu dài, trong mọi khía cạnh của cuộc sống. Mục đích sống của những người này là tạo nên giá trị bền vững, trong quá trình hướng tới mục tiêu của bạn, việc mang lại sự an toàn là điều mà thần số học số 4 khao khát mạnh mẽ.";
+        } else if (soTong == 5) {
+          ketQuaElement.innerHTML =
+            "Số Chủ Đạo của bạn là: 5.Thần số học số 5 là hiện thân cho sự mạo hiểm, bản tính thích phiêu lưu, không sợ hãi và muốn truyền tải tới mọi người cách sống đạt được sự tự do. Nhiệm vụ của số 5 trong ý nghĩa các con số thần số học là phát triển sự tự do theo thiên hướng xây dựng, bạn vừa có kỷ luật vừa có mong muốn trải nghiệm những điều tốt đẹp cuộc sống mang lại. Mục đích cuộc sống của bạn là tìm thấy sự tự do bên trong những quy tắc, luật lệ và trải nghiệm cuộc sống.";
+        } else if (soTong == 6) {
+          ketQuaElement.innerHTML =
+            "Số Chủ Đạo của bạn là: 6.Thần số học số 6 là hiện thân cho trách nhiệm, không phán xét, không chỉ trích những hành động và lựa chọn của người khác, bạn có tầm nhìn xa và khả năng nhìn thấy toàn cảnh trước mắt. Nhiệm vụ của thần số học 6 là phát triển và trau dồi khả năng nhìn xa trông rộng, cũng như học cách chấp nhận mọi khía cạnh của cuộc sống. Mục đích sống của thần số học số 6 là bạn phải dung hòa lý tưởng cao đẹp, chấp nhận bản thân, chấp nhận những thứ khiếm khuyết, và thêm tình yêu thương trong mọi việc bạn đã, đang và sẽ làm.";
+        } else if (soTong == 7) {
+          ketQuaElement.innerHTML =
+            "Số Chủ Đạo của bạn là: 7.Thần số học số 7 là hiện thân của trực giác, trí tuệ, không ngại mở lòng với người khác. Nhiệm vụ của thần số học số 7 là phát triển niềm tin vào dòng chảy của cuộc sống, mở ra sự phát triển và nhận thức cho các giá trị cá nhân và tinh thần. Mục đích cuộc sống của bạn là tin tưởng vào bản thân, vào quá trình bạn cảm thấy an toàn để có thể mở lòng và chia sẻ trí tuệ bên trong của mình ra thế giới.";
+        } else if (soTong == 8) {
+          ketQuaElement.innerHTML =
+            "Số Chủ Đạo của bạn là: 8.Thần số học số 8 là hiện thân cho sự dư dả về tài chính, sử dụng quyền lực khôn ngoan, luôn dành nhiều thời gian, tiền bạc và sức ảnh hưởng của mình để làm thế giới tốt đẹp hơn. Nhiệm vụ của số 8 trong thần số học là tạo ra sự dồi dào về vật chất, bạn được trao quyền để tạo ra điều tích cực ở mọi khía cạnh cuộc sống. Mục đích cuộc sống của bạn là sử dụng ảnh hưởng và quyền lực tài chính của mình để tạo ra dấu ấn trên thế giới và giúp đỡ những người khác.";
+        } else if (soTong == 9) {
+          ketQuaElement.innerHTML =
+            "Số Chủ Đạo của bạn là: 9.Thần số học số 9 là hiện thân của người lắng nghe, biết đồng cảm và cởi mở trong cuộc sống. Nhiệm vụ của người mang số chủ đạo là số 9 là trở thành người chính trực, trên con đường theo đuổi sự sáng tạo và cống hiến. Mục đích cuộc sống của số 9 là sống với các tiêu chuẩn cao của sự chính trực, sắp xếp cuộc sống song song giữa trí tuệ và trái tim, truyền cảm hứng cho mọi người.";
+        } else if (soTong == 11 / 2) {
+          ketQuaElement.innerHTML =
+            "Số Chủ Đạo của bạn là: 11.Thần số học số 11 là con số có tần số rung động cao hơn các con số khác, do có 2 con số 1. Đây có con số có trực giác cao, có khả năng ngoại cảm và có năng lực tâm linh. Nhân số học số 11 là những người nhạy cảm, dễ dàng đồng cảm và hòa hợp với mọi người xung quanh. Trong bài viết dưới đây, chuyên trang sẽ cung cấp thêm cho bạn những thông tin chi tiết về con số 11 trong thần số học";
+        } else if (soTong == 22 / 4) {
+          ketQuaElement.innerHTML =
+            "Thần số học cho biết rằng số 22 là một con số đặc biệt. Nó kết hợp các đặc điểm tích cực của số 11 (tâm linh, sự tỉnh táo) và số 4 (tư duy thực tế, logic). Người sở hữu số 22 có sự tự tin, tinh thần kỷ luật và khả năng lập kế hoạch tốt, điều này giúp họ đạt được thành công trong cuộc sống.Số 22 cũng tượng trưng cho sự cân bằng và chính xác gần như hoàn hảo. Những người có số 22 thường có hoài bão và tham vọng lớn. Họ luôn đặt ra những mục tiêu mới và không ngừng thử thách giới hạn của bản thân. Họ sẵn sàng hy sinh và cống hiến hết mình để đạt được những giấc mơ và lý tưởng của họ.";
+        }
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,140 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    box-sizing: border-box;
+    font-size: 20px;
+}
+
+li {
+    list-style: none;
+    display: flex;
+    margin: 0 30px;
+
+}
+.menu a{
+    color: whitesmoke;
+    display: flex;
+}
+
+a {
+    text-decoration: none;
+    display: inline block;
+}
+
+header {
+    display: flex;
+    justify-content: space-evenly;
+    padding: 10 20px;
+    height: 150px;
+    align-items: center;
+    background-color: rgba(67,61,84,0.6);
+}
+
+.logo {
+    margin-left: 10px;
+}
+
+.menu {
+    display: flex;
+    flex: 3;
+    justify-content: center;
+    text-align: center;
+    margin: 0 10px;
+
+}
+
+.lienhe {
+    display: flex;
+    margin: auto;
+    align-items: center;
+}
+
+
+.giohang {
+    display: flex;
+    align-items: center;
+    margin: 0 20px;
+    margin-right: 20px;
+
+}
+
+.gioithieu {
+    display: flex;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-width: 100%;
+    margin: 0 auto;
+    text-align: center;
+
+}
+
+.sanpham {
+    display: flex;
+    align-items: center;
+    justify-content:space-between;
+    max-width: 1100px;     
+    /* 1440 tieu chuan  */
+    margin: 0 auto;
+    text-align: center;
+
+}
+.sanpham-container>h2{
+    text-align: center;
+    margin-bottom: 50px;
+    margin-top: 50px;
+}
+.sanpham_chitiet{
+    width: 200px;
+    height: 400px;
+    /* margin : 0px 30px; */
+
+}
+
+.sanpham_chitiet> img{
+    width: 100%;
+    height: 100%;
+    
+}
+.lienhe li a {
+    color:whitesmoke
+}
+.giohang a{
+    color:whitesmoke
+}
+.gioithieu-container{
+    padding: 20px;
+    background-color: rgba(67,61,84,0.4);
+}
+.gioithieu{
+    font:italic;
+    font-size: 20;
+    color: whitesmoke;
+
+}
+h1{
+    font-size: 30px;
+    text-align: center;
+    padding: auto;
+    color: white;
+
+}
+h2{
+    font-size: 30px;
+    text-align: center;
+    padding: auto;
+    color: snow;
+    text-shadow: 3px 6px rgb(21,76,121);
+
+}
+.sanpham p{
+    color: snow;
+    margin-top: -30px;
+}
+.sanpham button{
+    width: 100px;
+    margin-top: 10px;
+    border-radius: 15px;
+}

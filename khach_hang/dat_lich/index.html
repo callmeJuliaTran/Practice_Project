@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đặt Lịch </title>
+    <link rel="stylesheet" href="dl.css" />
+    <style>
+        body {
+          background-image: url(/hinh/background5.jpg);
+          background-size:cover;
+        }
+      </style>
+
+</head>
+
+<body>
+    <div class="formDatlich">
+        <form action="" id="datlich">
+            <h1 class="form-heading">Đặt lịch
+                <span class="san_pham_class"></span>
+            </h1>
+            <div class="form-group">
+                <input type="text" class="form-input" placeholder="Nhập Họ Và Tên" name="hoten" />
+                <input type="text" class="form-input" placeholder="Số Điện Thoại Liên Lạc" name="sdt" />
+                <h3>Chọn gói xem </h3>
+                <input type="radio" name="goi" value="30" /> 30 phút
+                <input type="radio" name="goi" value="60" /> 60 phút
+                <input type="radio" name="goi" value="unlimited" /> Không giới hạn thời gian
+                <input type="radio" name="goi" value="6" /> vận hạn 6 tháng vận hạn
+                <input type="radio" name="goi" value="12" />vận hạn 1 năm
+                <h3>Giá: <span id="gia"></span></h3>
+                <h3>Chọn Ngày Xem</h3>
+                <input type="text" class="form-input" placeholder="Nhập Ngày Xem" name="ngaythang" />
+                <h3>NOTES</h3>
+                <textarea ty=]pe="text" class="form-input" placeholder=" " name="notes" style="height: 200px;"></textarea>
+                <h3>Giờ xem sẽ đươc xác nhận qua tin nhắn nếu bạn ở nước ngoài có thể thay số điện thoại bằng số Zalo.
+                    Chúng mình chỉ chấp nhận dời lịch 1 lần </h3>
+                <button type="submit" id="b"> Xác Nhận </button><br>
+            </div>
+        </form>
+    </div>
+    <script>
+        // lay gia tri cua san pham tren url
+        const params = new URLSearchParams(document.location.search);
+        const san_pham_url = params.get("san_pham");
+
+        // gan content vao span sp
+        var sanpham = document.getElementsByClassName('san_pham_class')[0];
+        sanpham.innerHTML = san_pham_url;
+
+        var goi = document.getElementsByName("goi");
+
+        // Add event listeners to radio inputs to update the 'gia' span when 'goi' changes
+        for (var i = 0; i < goi.length; i++) {
+            goi[i].addEventListener("change", function () {
+                var selectedGoi = document.querySelector('input[name="goi"]:checked').value; // 30, 60, unlimited
+                var giaElement = document.getElementById("gia");
+                if (selectedGoi == 30) {
+                    giaElement.textContent = 200 + "k";
+                } else if (selectedGoi == 60) {
+                    giaElement.textContent = 300 + "k";
+                }
+                else if (selectedGoi == "unlimited") {
+                    giaElement.textContent = 500 + "k";
+                } else if (selectedGoi == 6) {
+                    giaElement.textContent = 500 + "k";
+                } else if (selectedGoi == 12) {
+                    giaElement.textContent = 800 + "k";
+                }// Update the 'gia' span with the selected value
+            });
+        }
+    </script>
+
+
+</body>
+
+</html>

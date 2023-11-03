@@ -1,0 +1,21 @@
+td button{
+    background-color: yellow;
+}
+
+table{
+    border: 2px solid;
+    color: black;
+    width: 100%;
+    text-align: center;
+}
+td{
+    height: 50px;
+    text-align: center;
+}
+table, th, td{
+    border:1px solid black;
+}
+h1{
+    text-align: center;
+
+}

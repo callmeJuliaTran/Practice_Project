@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dang Nhap ADMIN</title>
+</head>
+
+<body>
+    <div class="login admin">
+        <!-- form truyen du lieu -->
+        <!-- action chuyen di sang cho khac them vao url -->
+        <!-- method get truyen du liue le thanh yrl con post thi k show  -->
+        <form action="" id="formlogin" method="post">
+            <h1 class="form heading">Form Dang Nhap Admin</h1>
+            <div class="form-group">
+                <input type="text" class="form-input" placeholder="Admin Dang Nhap" name="admintendangnhap" />
+            </div>
+            <div class="form-group">
+                <input type="password" class="=" form-input placeholder="Admin Mat Khau" name="adminmatkhau" />
+                <button  type="submit">DANG NHAP</button><br>
+                <span id="loidangnhap" style="color: red;"></span>
+        </form>
+    </div>
+    <script>
+        document.querySelector('form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            // lay ten dang nhap voi mk 
+            var admintendangnhap = document.getElementsByName("admintendangnhap")[0].value;
+            var adminmatkhau=document.getElementsByName("adminmatkhau")[0].value;
+            console.log(admintendangnhap,adminmatkhau); 
+            if(admintendangnhap=="admin"&& adminmatkhau == "admin"){
+                window.open('http://127.0.0.1:5500/admin.html');
+            }else{
+               var loi=document.getElementById("loidangnhap")
+               loi.textContent = "Ten dang nhap hoac mat khai khong trung khop";
+            }
+        });
+    </script>
+</body>
+
+</html>
